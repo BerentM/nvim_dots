@@ -18,7 +18,6 @@ local on_attach = function(client)
 	vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 	-- error movement
 	vim.keymap.set("n", "<leader>df", vim.diagnostic.goto_next, opts)
-	vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", opts)
 	vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
 end
 
@@ -29,33 +28,3 @@ for _, lsp in pairs(servers) do
 		on_attach = on_attach
 	}
 end
-
--- Setup nvim-cmp.
--- its used for autocompletion
-vim.opt.completeopt={"menu","menuone","noselect"} -- vim setting
-local cmp = require'cmp'
-
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-		end,
-	},
-	mapping = {
-		['<S-Tab>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-		['<Tab>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-		['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-		['<C-y>'] = cmp.config.disable,
-		['<C-e>'] = cmp.mapping({
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		}),
-		['<CR>'] = cmp.mapping.confirm({ select = true }),
-	},
-	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' }, -- For luasnip users.
-	}, {
-		{ name = 'buffer' },
-	})
-})
