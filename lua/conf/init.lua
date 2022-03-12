@@ -1,2 +1,5 @@
 require "conf.lsp"
+require "conf.dap"
 require "conf.telescope"
+require "conf.bufferline"
+require "conf.snip"

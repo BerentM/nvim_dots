@@ -1,6 +1,6 @@
 require('telescope').setup{
 defaults = {
-	prompt_prefix = "➲ ",
+	prompt_prefix = "↪ ",
 },
 extensions = {
     fzf = {
@@ -10,15 +10,21 @@ extensions = {
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                        -- the default case_mode is "smart_case"
     }
+  },
+  pickers = {
+      find_files = {
+          hidden = true
+      }
   }
 }
 
 require('telescope').load_extension('fzf')
 require("telescope").load_extension "file_browser"
+require("telescope").load_extension "dap"
 
 -- remaps
-vim.keymap.set("n", " ff", "<cmd>Telescope find_files<cr>")
-vim.keymap.set("n", " fg", "<cmd>Telescope live_grep<cr>")
-vim.keymap.set("n", " fb", "<cmd>Telescope file_browser<cr>")
-vim.keymap.set("n", " fu", "<cmd>Telescope buffers<cr>")
-vim.keymap.set("n", " fh", "<cmd>Telescope help_tags<cr>")
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+vim.keymap.set("n", "<leader>ft", "<cmd>Telescope file_browser<cr>")
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
+vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")

@@ -21,7 +21,8 @@ save=1
 [file-run]
 command="$(VIM_FILEPATH)"
 command:c,cpp="$(VIM_PATHNOEXT)"
-command:go=go run "$(VIM_PATHNOEXT)"
+; command:go=go run "$(VIM_PATHNOEXT)"
+command:go=go run "$(VIM_FILENAME)"
 command:python=python "$(VIM_FILENAME)"
 command:javascript=node "$(VIM_FILENAME)"
 command:sh=sh "$(VIM_FILENAME)"
