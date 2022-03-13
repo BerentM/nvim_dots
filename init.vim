@@ -42,6 +42,7 @@ call plug#begin(expand('~/.vim/plugged'))
 	Plug 'skywind3000/asynctasks.vim'           " asynchroniczne uruchamianie programów
 	Plug 'skywind3000/asyncrun.vim'             " asynchroniczne uruchamianie programów
     Plug 'akinsho/bufferline.nvim'              " spoko wyświetlanie bufferow
+    Plug 'lewis6991/gitsigns.nvim'              " wyswietlanie bajerow gita
     " Plug 'kyazdani42/nvim-tree.lua'           " drzewko katalogow
 
     " LOOKS
