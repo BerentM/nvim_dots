@@ -23,7 +23,7 @@ vim.keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<CR>")
 -- close buffer
 vim.keymap.set("n", "<leader>qq", "<cmd>bd<CR>")
 -- force close buffer
-vim.keymap.set("n", "<leader>QQ", "<cmd>bd!<CR>")
+vim.keymap.set("n", "<leader>Qq", "<cmd>bd!<CR>")
 
 -- These commands will move the current buffer backwards or forwards in the bufferline
 vim.keymap.set("n", "m]b", "<cmd>BufferLineMoveNext<CR>")

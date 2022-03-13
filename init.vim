@@ -132,5 +132,14 @@ set showmatch matchtime=3
 set termguicolors
 syntax on
 colorscheme nord
-let g:lightline = {'colorscheme': 'nord',}
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 " }}}
