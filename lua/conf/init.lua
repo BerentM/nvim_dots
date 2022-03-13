@@ -4,3 +4,5 @@ require "conf.telescope"
 require "conf.bufferline"
 require "conf.snip"
 require "conf.gitsigns"
+require "conf.nvim_tree"
+
