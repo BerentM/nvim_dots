@@ -44,6 +44,7 @@ call plug#begin(expand('~/.vim/plugged'))
     Plug 'akinsho/bufferline.nvim'              " spoko wyświetlanie bufferow
     Plug 'lewis6991/gitsigns.nvim'              " wyswietlanie bajerow gita
     Plug 'kyazdani42/nvim-tree.lua'             " drzewko katalogow
+    Plug 'vim-test/vim-test'                    " sprawne uruchamianie testow
 
     " LOOKS
 	Plug 'arcticicestudio/nord-vim'             " nord theme
@@ -78,6 +79,13 @@ nnoremap <silent> <leader>w :w <CR>
 "}}}
 " Load lua config {{{
 lua require("conf")
+" }}}
+" vim-test {{{
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 " }}}
 " nvim-tree {{{
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
