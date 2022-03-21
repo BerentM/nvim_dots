@@ -206,18 +206,8 @@ set showmatch matchtime=3
 
 "}}}
 " Colorscheme{{{
-" looks cool with Caskaydia Cove Nerd Font
+" looks cool with terminal font: 'Caskaydia Cove Nerd Font'
 set termguicolors
 syntax on
 colorscheme nord
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
 " }}}
