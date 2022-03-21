@@ -48,7 +48,8 @@ call plug#begin(expand('~/.vim/plugged'))
 
     " LOOKS
 	Plug 'arcticicestudio/nord-vim'             " nord theme
-	Plug 'itchyny/lightline.vim'                " statusline
+    Plug 'rebelot/kanagawa.nvim'                " kanagawa theme
+    Plug 'nvim-lualine/lualine.nvim'            " statusline
     Plug 'kyazdani42/nvim-web-devicons'         " kolorowe ikony dla bufferline
     Plug 'folke/todo-comments.nvim'             " highlight todo comments
 
