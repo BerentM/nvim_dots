@@ -13,9 +13,10 @@ extensions = {
   },
 }
 
-require('telescope').load_extension('fzf')
-require("telescope").load_extension "file_browser"
-require("telescope").load_extension "dap"
+require("telescope").load_extension("fzf")
+require("telescope").load_extension("file_browser")
+require("telescope").load_extension("dap")
+require("telescope").load_extension("aerial")
 
 -- remaps
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")

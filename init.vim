@@ -38,18 +38,24 @@ call plug#begin(expand('~/.vim/plugged'))
 	Plug 'wellle/targets.vim'                   " rozbudowane zmienianie/ modyfikowanie w nawiasach itp
 	Plug 'tpope/vim-surround'                   " domykanie nawiasów itp
 	Plug 'tpope/vim-commentary'                 " komentarze
+
 	Plug 'tpope/vim-fugitive'                   " obsługa gita
+    Plug 'lewis6991/gitsigns.nvim'              " wyswietlanie bajerow gita
+
 	Plug 'skywind3000/asynctasks.vim'           " asynchroniczne uruchamianie programów
 	Plug 'skywind3000/asyncrun.vim'             " asynchroniczne uruchamianie programów
+
     Plug 'akinsho/bufferline.nvim'              " spoko wyświetlanie bufferow
-    Plug 'lewis6991/gitsigns.nvim'              " wyswietlanie bajerow gita
     Plug 'kyazdani42/nvim-tree.lua'             " drzewko katalogow
+    Plug 'stevearc/aerial.nvim'                 " drzewko obiektów/symboli po prawej
+
     Plug 'vim-test/vim-test'                    " sprawne uruchamianie testow
 
     " LOOKS
 	Plug 'arcticicestudio/nord-vim'             " nord theme
     Plug 'rebelot/kanagawa.nvim'                " kanagawa theme
     Plug 'nvim-lualine/lualine.nvim'            " statusline
+    Plug 'SmiteshP/nvim-gps'                    " lualine, pokazuje context aktualnie zaznaczonej lini
     Plug 'kyazdani42/nvim-web-devicons'         " kolorowe ikony dla bufferline
     Plug 'folke/todo-comments.nvim'             " highlight todo comments
 
