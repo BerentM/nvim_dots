@@ -33,6 +33,7 @@ call plug#begin(expand('~/.vim/plugged'))
     Plug 'nvim-telescope/telescope-dap.nvim'
 
     " MISC
+    Plug 'ThePrimeagen/harpoon'
 	Plug 'jiangmiao/auto-pairs'                 " zamykanie nawiasów
 	Plug 'justinmk/vim-sneak'                   " przeskakiwanie do wystąpienia 2 znaków
 	Plug 'wellle/targets.vim'                   " rozbudowane zmienianie/ modyfikowanie w nawiasach itp
@@ -164,6 +165,16 @@ noremap <silent><f9> :AsyncTask file-build<cr>
 noremap <silent><f4> :AsyncStop <cr>
 
 " }}}
+" harpoon {{{
+
+nnoremap <silent> <Leader>ha :lua require("harpoon.mark").add_file()<CR>
+nnoremap <silent> <Leader>hh :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent> <Leader>1 :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <silent> <Leader>2 :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <silent> <Leader>3 :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <silent> <Leader>4 :lua require("harpoon.ui").nav_file(4)<CR>
+
+" }}}
 " Misc {{{
 " czyszczenie highlightu po wyszukiwaniu
 nnoremap <silent> <esc> :noh<return><esc>
@@ -198,6 +209,10 @@ set spelllang=en_us,pl
 " dynamiczne menu u dołu ekranu
 set wildmenu
 
+" matchowanie/oznaczanie nawiasów
+set showmatch matchtime=3
+" }}}
+" Auto Commands {{{
 " usuwanie zbędnych spacji z końca linii
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -207,10 +222,20 @@ augroup vimrc_over_length
   autocmd BufEnter * match OverLength /\%81v.*/
 augroup END
 
-" matchowanie/oznaczanie nawiasów
-set showmatch matchtime=3
+augroup general
+  autocmd!
+  " Jump to the position when you last quit
+  autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") && &filetype !~# 'commit' |
+        \   exe "normal! g'\"" |
+        \ endif
+  " Automatically equalize splits when Vim is resized
+  autocmd VimResized * wincmd =
+  " Make it not be overwritten by the default setting of neovim
+  autocmd FileType * set formatoptions-=t formatoptions-=o formatoptions-=r textwidth=80
+augroup END
 
-"}}}
+" }}}
 " Colorscheme{{{
 " looks cool with terminal font: 'Caskaydia Cove Nerd Font'
 set termguicolors
