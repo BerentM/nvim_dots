@@ -11,7 +11,7 @@ require("aerial").setup {
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'eK', '<cmd>AerialPrevUp<CR>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'eJ', '<cmd>AerialNextUp<CR>', {})
     -- Fuzzy finding symbols (it respects backends and filter_kind)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'ef', '<cmd>Telescope aerial<CR>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fe', '<cmd>Telescope aerial<CR>', {})
   end,
 
   backends = { "lsp", "treesitter", "markdown" },
