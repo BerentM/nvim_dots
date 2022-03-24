@@ -85,8 +85,13 @@ inoremap jk <esc>
 " szybkie zapisywanie
 nnoremap <silent> <leader>w :w <CR>
 "}}}
-" Load lua config {{{
+" Load lua config and set python env {{{
 lua require("conf")
+
+" make it easy to load pynvim in each of the virtual envs
+if has('win64') || has('win32') || has('win16')
+    let g:python3_host_prog = 'C:\Users\beren\scoop\apps\python\current\python.exe'
+endif
 " }}}
 " vim-test {{{
 nmap <silent> <leader>t :TestNearest<CR>
