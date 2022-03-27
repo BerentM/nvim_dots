@@ -159,7 +159,6 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 " NvimTreeResize
 " NvimTreeCollapse
 " NvimTreeCollapseKeepBuffers
-
 " }}}
 " AsyncRun {{{
 let g:asyncrun_open = 6
@@ -171,14 +170,12 @@ noremap <silent><f4> :AsyncStop <cr>
 
 " }}}
 " harpoon {{{
-
 nnoremap <silent> <Leader>ha :lua require("harpoon.mark").add_file()<CR>
 nnoremap <silent> <Leader>hh :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <silent> <Leader>1 :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <silent> <Leader>2 :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <silent> <Leader>3 :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <silent> <Leader>4 :lua require("harpoon.ui").nav_file(4)<CR>
-
 " }}}
 " Misc {{{
 " czyszczenie highlightu po wyszukiwaniu
@@ -239,7 +236,6 @@ augroup general
   " Make it not be overwritten by the default setting of neovim
   autocmd FileType * set formatoptions-=t formatoptions-=o formatoptions-=r textwidth=80
 augroup END
-
 " }}}
 " Colorscheme{{{
 " looks cool with terminal font: 'Caskaydia Cove Nerd Font'
