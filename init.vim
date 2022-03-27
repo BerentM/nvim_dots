@@ -1,4 +1,4 @@
-" Plugs {{{
+" PLUGS {{{
 call plug#begin(expand('~/.vim/plugged'))
 	" TELESCOPE
 	" install ripgrep -> scoop install ripgrep
@@ -34,73 +34,79 @@ call plug#begin(expand('~/.vim/plugged'))
 
     " MISC
     Plug 'ThePrimeagen/harpoon'
-	Plug 'jiangmiao/auto-pairs'                 " zamykanie nawiasów
-	Plug 'justinmk/vim-sneak'                   " przeskakiwanie do wystąpienia 2 znaków
-	Plug 'wellle/targets.vim'                   " rozbudowane zmienianie/ modyfikowanie w nawiasach itp
-	Plug 'tpope/vim-surround'                   " domykanie nawiasów itp
-	Plug 'tpope/vim-commentary'                 " komentarze
+	Plug 'jiangmiao/auto-pairs'                 " close brackets
+	Plug 'justinmk/vim-sneak'                   " jump to two specific characters
+	Plug 'wellle/targets.vim'                   " better changing and modifying in brackets
+	Plug 'tpope/vim-surround'                   " bracket closing
+	Plug 'tpope/vim-commentary'                 " smarter comments
 
-	Plug 'tpope/vim-fugitive'                   " obsługa gita
-    Plug 'lewis6991/gitsigns.nvim'              " wyswietlanie bajerow gita
+	Plug 'tpope/vim-fugitive'                   " git
+    Plug 'lewis6991/gitsigns.nvim'              " show git icons
 
-	Plug 'skywind3000/asynctasks.vim'           " asynchroniczne uruchamianie programów
-	Plug 'skywind3000/asyncrun.vim'             " asynchroniczne uruchamianie programów
+	Plug 'skywind3000/asynctasks.vim'           " running programs in async manner
+	Plug 'skywind3000/asyncrun.vim'
 
-    Plug 'akinsho/bufferline.nvim'              " spoko wyświetlanie bufferow
-    Plug 'kyazdani42/nvim-tree.lua'             " drzewko katalogow
-    Plug 'stevearc/aerial.nvim'                 " drzewko obiektów/symboli po prawej
+    Plug 'akinsho/bufferline.nvim'              " better buffer display
+    Plug 'kyazdani42/nvim-tree.lua'             " catalog tree
+    Plug 'stevearc/aerial.nvim'                 " object/symbol tree on the right side
 
-    Plug 'vim-test/vim-test'                    " sprawne uruchamianie testow
+    Plug 'vim-test/vim-test'                    " better testing
 
     " LOOKS
 	Plug 'arcticicestudio/nord-vim'             " nord theme
     Plug 'rebelot/kanagawa.nvim'                " kanagawa theme
     Plug 'nvim-lualine/lualine.nvim'            " statusline
-    Plug 'SmiteshP/nvim-gps'                    " lualine, pokazuje context aktualnie zaznaczonej lini
-    Plug 'kyazdani42/nvim-web-devicons'         " kolorowe ikony dla bufferline
+    Plug 'SmiteshP/nvim-gps'                    " show better context of actual line in lualine bar
+    Plug 'kyazdani42/nvim-web-devicons'         " colorfull icons ie. for bufferline
     Plug 'folke/todo-comments.nvim'             " highlight todo comments
 
 call plug#end()
 " }}}
-" Remaps {{{
-" wycinanie, wklejanie, kopiowanie do i z systemowego clipboarda
+" REMAPS {{{
+
+" Cutting, pasting, copying from and to system clipboard
 map <C-x> "+d
 map <C-y> "+y
 map <C-p> "+p
 map <C-P> "+P
 
-" mapowanie <leader> na spacje
+" Map space to <leader>
 let mapleader = " "
 
-" zapisywanie jako root
+" Save as root
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
-" tworzy nową linijke poniżej/powyżej
+" Create new line above/below current line
 inoremap jj <C-o>o
 inoremap kk <C-o>O
 
-" remap esc na jk
+" Remap esc to jk
 inoremap jk <esc>
 
-" szybkie zapisywanie
+" Quick save
 nnoremap <silent> <leader>w :w <CR>
+
 "}}}
-" Load lua config and set python env {{{
+" LOAD LUA CONFIG AND SET PYTHON ENV {{{
 lua require("conf")
 
-" make it easy to load pynvim in each of the virtual envs
+" Make it easy to load pynvim in each of the virtual envs
 if has('win64') || has('win32') || has('win16')
     let g:python3_host_prog = 'C:\Users\beren\scoop\apps\python\current\python.exe'
 endif
+
 " }}}
-" vim-test {{{
+" VIM-TEST {{{
+
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
+
 " }}}
-" nvim-tree {{{
+" NVIM-TREE {{{
+
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
 let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
 let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
@@ -159,8 +165,10 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 " NvimTreeResize
 " NvimTreeCollapse
 " NvimTreeCollapseKeepBuffers
+
 " }}}
-" AsyncRun {{{
+" ASYNCRUN {{{
+
 let g:asyncrun_open = 6
 let g:asynctasks_extra_config = ['C:\Users\beren\AppData\Local\nvim\.tasks']
 
@@ -169,56 +177,64 @@ noremap <silent><f9> :AsyncTask file-build<cr>
 noremap <silent><f4> :AsyncStop <cr>
 
 " }}}
-" harpoon {{{
+" HARPOON {{{
+
 nnoremap <silent> <Leader>ha :lua require("harpoon.mark").add_file()<CR>
 nnoremap <silent> <Leader>hh :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <silent> <Leader>1 :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <silent> <Leader>2 :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <silent> <Leader>3 :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <silent> <Leader>4 :lua require("harpoon.ui").nav_file(4)<CR>
+
 " }}}
-" Misc {{{
-" czyszczenie highlightu po wyszukiwaniu
+" MISC {{{
+
+" Clear highlights after search
 nnoremap <silent> <esc> :noh<return><esc>
 
-" zawijanie bloków kodu
+" Fold code blocks
 set foldmethod=marker
 set foldmarker={{{,}}}
 
-" numerowanie wierszy
+" Line numbers
 set number
 
-"długość wiesza == 80 znaków
+" Row width == 80 characters
 set tw=80
 
-"tab równa się 4 spacjom
+" Tab equalize to 4 spaces
 set ts=4
 set shiftwidth=4
 
-" zamiana tabów na spacje
+" Change tabs to spaces
 set expandtab
 
-" oznaczenie aktualnej linii
+" Mark current line
 set cursorline
 
-" wyświetlanie komendy
+" Show commands
 set showcmd
 
-" sprawdzanie ortografii
-" set spell
+" Spell checking
 set spelllang=en_us,pl
+nnoremap <silent> <F10> :set spell!<cr>
+inoremap <silent> <F10> <C-O>:set spell!<cr>
+" Show nine spell checking candidates at most
+set spellsuggest=best,9
 
-" dynamiczne menu u dołu ekranu
+" Dynamic menu at screen bottom
 set wildmenu
 
-" matchowanie/oznaczanie nawiasów
+" Match/mark brackets
 set showmatch matchtime=3
+
 " }}}
-" Auto Commands {{{
-" usuwanie zbędnych spacji z końca linii
+" AUTO COMMANDS {{{
+
+" Remove unnecessary spaces from end of the line
 autocmd BufWritePre * %s/\s\+$//e
 
-" zakreśla tekst gdy ten jest dłuższy niż 80 znaków
+" Mark text past 80th column
 augroup vimrc_over_length
   autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
   autocmd BufEnter * match OverLength /\%81v.*/
@@ -236,10 +252,13 @@ augroup general
   " Make it not be overwritten by the default setting of neovim
   autocmd FileType * set formatoptions-=t formatoptions-=o formatoptions-=r textwidth=80
 augroup END
+
 " }}}
-" Colorscheme{{{
-" looks cool with terminal font: 'Caskaydia Cove Nerd Font'
+" COLORSCHEME{{{
+
+" Looks cool with terminal font: 'Caskaydia Cove Nerd Font'
 set termguicolors
 syntax on
 colorscheme nord
+
 " }}}
