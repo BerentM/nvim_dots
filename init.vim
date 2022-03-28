@@ -19,7 +19,7 @@ call plug#begin(expand('~/.vim/plugged'))
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
 
-    " snippets
+    " SNIPPETS
     Plug 'L3MON4D3/LuaSnip'
     Plug 'rafamadriz/friendly-snippets'
 
@@ -52,7 +52,7 @@ call plug#begin(expand('~/.vim/plugged'))
 
     Plug 'vim-test/vim-test'                    " better testing
 
-    " LOOKS
+    " VISUALS
 	Plug 'arcticicestudio/nord-vim'             " nord theme
     Plug 'rebelot/kanagawa.nvim'                " kanagawa theme
     Plug 'nvim-lualine/lualine.nvim'            " statusline
