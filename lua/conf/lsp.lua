@@ -21,7 +21,7 @@ local on_attach = function(client)
 	vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
 end
 
-local servers = {"pylsp", "gopls"}
+local servers = {"pyright", "gopls"}
 for _, lsp in pairs(servers) do
 	require'lspconfig'[lsp].setup{
 		capabilities=capabilities,
