@@ -86,6 +86,12 @@ inoremap jk <esc>
 " Quick save
 nnoremap <silent> <leader>w :w <CR>
 
+" GIT
+nnoremap <silent> <leader>gg :Git<CR>
+
+" Reload gitsigns due to race condition error during start
+nnoremap <silent> <leader>gq :Gitsigns setup<CR>
+
 "}}}
 " LOAD LUA CONFIG AND SET PYTHON ENV {{{
 lua require("conf")
