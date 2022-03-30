@@ -17,8 +17,8 @@ local on_attach = function(client)
 	vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 	vim.keymap.set("n", "<leader>x", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 	-- error movement
-	vim.keymap.set("n", "<leader>df", vim.diagnostic.goto_next, opts)
-	vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
+	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 end
 
 local servers = {"pyright", "gopls"}
@@ -26,7 +26,7 @@ for _, lsp in pairs(servers) do
 	require'lspconfig'[lsp].setup{
 		capabilities=capabilities,
 		on_attach = on_attach
-	}
+    }
 end
 
 vim.diagnostic.config({

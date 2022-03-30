@@ -19,6 +19,10 @@ call plug#begin(expand('~/.vim/plugged'))
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
 
+    " GIT
+	Plug 'tpope/vim-fugitive'                   " git
+    Plug 'lewis6991/gitsigns.nvim'              " show git icons
+
     " SNIPPETS
     Plug 'L3MON4D3/LuaSnip'
     Plug 'rafamadriz/friendly-snippets'
@@ -39,9 +43,6 @@ call plug#begin(expand('~/.vim/plugged'))
 	Plug 'wellle/targets.vim'                   " better changing and modifying in brackets
 	Plug 'tpope/vim-surround'                   " bracket closing
 	Plug 'tpope/vim-commentary'                 " smarter comments
-
-	Plug 'tpope/vim-fugitive'                   " git
-    Plug 'lewis6991/gitsigns.nvim'              " show git icons
 
 	Plug 'skywind3000/asynctasks.vim'           " running programs in async manner
 	Plug 'skywind3000/asyncrun.vim'
@@ -90,7 +91,12 @@ nnoremap <silent> <leader>w :w <CR>
 nnoremap <silent> <leader>gg :Git<CR>
 
 " Reload gitsigns due to race condition error during start
-nnoremap <silent> <leader>gq :Gitsigns setup<CR>
+nnoremap <silent> <leader><leader>g :Gitsigns setup<CR>
+
+" ReSource whole vim
+nnoremap <silent> <Leader><Leader>s :source $MYVIMRC<cr>
+" Edit init.vim
+nnoremap <silent> <Leader><Leader>e :e $MYVIMRC<cr>
 
 "}}}
 " LOAD LUA CONFIG AND SET PYTHON ENV {{{
@@ -99,6 +105,7 @@ lua require("conf")
 " Make it easy to load pynvim in each of the virtual envs
 if has('win64') || has('win32') || has('win16')
     let g:python3_host_prog = 'C:\Users\beren\scoop\apps\python\current\python.exe'
+    let g:fugitive_git_executable = 'C:\\Program\ Files\\Git\\cmd\\git.exe'
 endif
 
 " }}}
