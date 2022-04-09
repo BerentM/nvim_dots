@@ -1,5 +1,6 @@
 --debugging
 vim.keymap.set("n", "<F6>", "<cmd>lua require'dap'.continue()<CR>")
+vim.keymap.set("n", "<F4>", "<cmd>lua require'dap'.close()<CR>")
 vim.keymap.set("n", "<F7>", "<cmd>lua require'dap'.step_over()<CR>")
 vim.keymap.set("n", "<F2>", "<cmd>lua require'dap'.step_into()<CR>")
 vim.keymap.set("n", "<F3>", "<cmd>lua require'dap'.step_out()<CR>")
