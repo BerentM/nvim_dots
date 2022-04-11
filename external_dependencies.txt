@@ -1,0 +1,18 @@
+scoop:
+    -> ripgrep
+    -> make
+    -> git
+
+python:
+    dap -> debugpy
+    lsp -> pyright
+    lsp_helpers -> (pip) mypy yapf pydocstyle vulture
+
+go:
+    dap -> delve
+    lsp -> gopls
+    lsp_helpers -> (scoop) goimports, gofmt
+
+lua:
+    lsp -> sumneko_lua
+    lsp_helpers -> (scoop) stylua
