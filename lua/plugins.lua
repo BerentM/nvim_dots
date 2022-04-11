@@ -112,8 +112,8 @@ use 'shaunsingh/nord.nvim'                 -- nord theme
 use 'rebelot/kanagawa.nvim'                -- kanagawa theme
 use {
     'nvim-lualine/lualine.nvim',            -- statusline
-    config = get_config('lualine'),
-    event = "VimEnter"
+    event = "VimEnter",
+    config = get_config('lualine')
 }
 use 'SmiteshP/nvim-gps'                    -- show better context of actual line in lualine bar
 use 'kyazdani42/nvim-web-devicons'         -- colorfull icons ie. for bufferline
