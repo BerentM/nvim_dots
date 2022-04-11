@@ -1,7 +1,10 @@
 scoop:
+    -> neovim 0.7+ (neovim-nightly requires versions bucket)
     -> ripgrep
     -> make
     -> git
+    -> fd
+    -> DejaVuSansMono-NF (requires nerdfonts bucket)
 
 python:
     dap -> debugpy
