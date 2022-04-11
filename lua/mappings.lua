@@ -83,4 +83,9 @@ map("n", "<Leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", default_
 map("n", "<Leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", default_options)
 
 -- }}}
+-- NVIM-TREE {{{
+
+map("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", default_options)
+
+-- }}}
 -- }}}
