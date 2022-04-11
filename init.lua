@@ -1,6 +1,6 @@
 -- Plugins via Packer
 require('plugins')
--- General remaps
+-- General remaps + non configured plugs
 require('mappings')
 -- Non plugin options
 require('options')

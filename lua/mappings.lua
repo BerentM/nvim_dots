@@ -1,6 +1,8 @@
 local map = vim.api.nvim_set_keymap
+local g = vim.g
 local default_options = { noremap = true, silent = true }
 
+-- BUILTIN {{{
 -- Map the leader key
 map("n", "<Space>", "<NOP>", default_options)
 vim.g.mapleader = " "
@@ -49,3 +51,36 @@ map("n", "<esc>", "<cmd>noh<return><esc>", default_options)
 -- Spellchecking
 map("n", "<F10>", "<cmd>set spell!<cr>", default_options)
 map("i", "<F10>", "<C-O><cmd>set spell!<cr>", default_options)
+
+-- }}}
+-- PLUGINS {{{
+-- VIM-TEST {{{
+
+map("n", "<leader>t", ":<cmd>TestNearest<CR>", default_options)
+map("n", "<leader>T", ":<cmd>TestFile<CR>", default_options)
+map("n", "<leader>a", ":<cmd>TestSuite<CR>", default_options)
+map("n", "<leader>l", ":<cmd>TestLast<CR>", default_options)
+map("n", "<leader>g", ":<cmd>TestVisit<CR>", default_options)
+
+-- }}}
+-- ASYNCRUN {{{
+
+g.asyncrun_open = 6
+g.asynctasks_extra_config = 'C:\\Users\\beren\\AppData\\Local\\nvim\\.tasks'
+
+map("n", "<F5>", "<cmd>AsyncTask file-run<cr>", default_options)
+map("n", "<f9>", "<cmd>AsyncTask file-build<cr>", default_options)
+map("n", "<f4>", "<cmd>AsyncStop <cr>", default_options)
+
+-- }}}
+-- HARPOON {{{
+
+map("n", "<Leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>", default_options)
+map("n", "<Leader>hh", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", default_options)
+map("n", "<Leader>1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", default_options)
+map("n", "<Leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", default_options)
+map("n", "<Leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", default_options)
+map("n", "<Leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", default_options)
+
+-- }}}
+-- }}}
