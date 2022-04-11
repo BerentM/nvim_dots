@@ -1,8 +1,9 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- PACKER {{{
 
+local function get_config(name)
 -- returns the require for use in `config` parameter of packer's use
 -- expects the name of the config file
-local function get_config(name)
     return string.format("require(\"conf/%s\")", name)
 end
 
@@ -18,7 +19,9 @@ packer.reset()
 -- Packer can manage itself
 use 'wbthomason/packer.nvim'
 
--- TELESCOPE
+-- }}}
+-- TELESCOPE {{{
+
 -- install ripgrep -> scoop install ripgrep
 -- make sure that "make" is there -> scoop install make
 use 'nvim-lua/popup.nvim'
@@ -34,7 +37,9 @@ use {
 }
 use 'nvim-telescope/telescope-file-browser.nvim'
 
--- LSP
+-- }}}
+-- LSP {{{
+
 use {
     'neovim/nvim-lspconfig',
     config = get_config('lsp')
@@ -56,14 +61,18 @@ use {
     config = get_config('null-ls')
 }
 
--- GIT
+-- }}}
+-- GIT {{{
+
 use 'tpope/vim-fugitive'                   -- git
 use {
     'lewis6991/gitsigns.nvim',             -- show git icons
     config = get_config('gitsigns')
 }
 
--- DEBUGGER - DAP
+-- }}}
+-- DEBUGGER - DAP {{{
+
 use {
     'mfussenegger/nvim-dap',
     requires = {
@@ -80,7 +89,9 @@ use {
     run = ':TSUpdate'
 }
 
--- MISC
+-- }}}
+-- MISC {{{
+
 use 'ThePrimeagen/harpoon'
 use 'jiangmiao/auto-pairs'                 -- close brackets
 use 'justinmk/vim-sneak'                   -- jump to two specific characters
@@ -93,6 +104,7 @@ use 'skywind3000/asyncrun.vim'
 
 use {
     'akinsho/bufferline.nvim',             -- better buffer display
+    requires = { {'kyazdani42/nvim-web-devicons'} },
     config = get_config('bufferline')
 }
 use {
@@ -107,16 +119,20 @@ use {
 
 use 'vim-test/vim-test'                    -- better testing
 
--- VISUALS
+-- }}}
+-- VISUALS {{{
+
 use 'shaunsingh/nord.nvim'                 -- nord theme
 use 'rebelot/kanagawa.nvim'                -- kanagawa theme
 use {
-    'nvim-lualine/lualine.nvim',            -- statusline
+    'nvim-lualine/lualine.nvim',           -- statusline
+    requires = {
+        {'kyazdani42/nvim-web-devicons'},
+        {'SmiteshP/nvim-gps'}
+    },
     event = "VimEnter",
     config = get_config('lualine')
 }
-use 'SmiteshP/nvim-gps'                    -- show better context of actual line in lualine bar
-use 'kyazdani42/nvim-web-devicons'         -- colorfull icons ie. for bufferline
 use {
     'folke/todo-comments.nvim',             -- highlight todo comments
     requires = { {'nvim-lua/plenary'} },
@@ -124,3 +140,5 @@ use {
     event = "BufReadPost",
     config = get_config("todo_comments")
 }
+
+-- }}}
