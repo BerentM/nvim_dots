@@ -1,69 +1,13 @@
-" PLUGS {{{
-call plug#begin(expand('~/.vim/plugged'))
-	" TELESCOPE
-	" install ripgrep -> scoop install ripgrep
-	" make sure that "make" is there -> scoop install make
-	Plug 'nvim-lua/popup.nvim'
-	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-	Plug 'nvim-telescope/telescope-file-browser.nvim'
+" PLUGS & CONFIG {{{
 
-	" LSP
-	Plug 'neovim/nvim-lspconfig'
-	" LSP autocomplete
-	Plug 'hrsh7th/nvim-cmp'
-	Plug 'hrsh7th/cmp-nvim-lsp'
-	Plug 'hrsh7th/cmp-buffer'
-	Plug 'hrsh7th/cmp-path'
-	Plug 'L3MON4D3/LuaSnip'
-	Plug 'saadparwaiz1/cmp_luasnip'
-    " Code formatting/actions
-    Plug 'jose-elias-alvarez/null-ls.nvim'
+lua require('plugins')      " packer plugin list
+lua require("conf")         " plugin lua configs
+" Make it easy to load pynvim in each of the virtual envs
+if has('win64') || has('win32') || has('win16')
+    let g:python3_host_prog = 'C:\Users\beren\scoop\apps\python\current\python.exe'
+    let g:fugitive_git_executable = 'C:\\Program\ Files\\Git\\cmd\\git.exe'
+endif
 
-    " GIT
-	Plug 'tpope/vim-fugitive'                   " git
-    Plug 'lewis6991/gitsigns.nvim'              " show git icons
-
-    " SNIPPETS
-    Plug 'L3MON4D3/LuaSnip'
-    Plug 'rafamadriz/friendly-snippets'
-
-    " DEBUGGER - DAP
-    Plug 'mfussenegger/nvim-dap'
-    Plug 'leoluz/nvim-dap-go'                   " requires delve debugger
-    Plug 'mfussenegger/nvim-dap-python'         " requires debugpy
-    Plug 'rcarriga/nvim-dap-ui'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'theHamsta/nvim-dap-virtual-text'
-    Plug 'nvim-telescope/telescope-dap.nvim'
-
-    " MISC
-    Plug 'ThePrimeagen/harpoon'
-	Plug 'jiangmiao/auto-pairs'                 " close brackets
-	Plug 'justinmk/vim-sneak'                   " jump to two specific characters
-	Plug 'wellle/targets.vim'                   " better changing and modifying in brackets
-	Plug 'tpope/vim-surround'                   " bracket closing
-	Plug 'tpope/vim-commentary'                 " smarter comments
-
-	Plug 'skywind3000/asynctasks.vim'           " running programs in async manner
-	Plug 'skywind3000/asyncrun.vim'
-
-    Plug 'akinsho/bufferline.nvim'              " better buffer display
-    Plug 'kyazdani42/nvim-tree.lua'             " catalog tree
-    Plug 'stevearc/aerial.nvim'                 " object/symbol tree on the right side
-
-    Plug 'vim-test/vim-test'                    " better testing
-
-    " VISUALS
-	Plug 'arcticicestudio/nord-vim'             " nord theme
-    Plug 'rebelot/kanagawa.nvim'                " kanagawa theme
-    Plug 'nvim-lualine/lualine.nvim'            " statusline
-    Plug 'SmiteshP/nvim-gps'                    " show better context of actual line in lualine bar
-    Plug 'kyazdani42/nvim-web-devicons'         " colorfull icons ie. for bufferline
-    Plug 'folke/todo-comments.nvim'             " highlight todo comments
-
-call plug#end()
 " }}}
 " REMAPS {{{
 
@@ -101,16 +45,6 @@ nnoremap <silent> <Leader><Leader>s :source $MYVIMRC<cr>
 nnoremap <silent> <Leader><Leader>e :e $MYVIMRC<cr>
 
 "}}}
-" LOAD LUA CONFIG AND SET PYTHON ENV {{{
-lua require("conf")
-
-" Make it easy to load pynvim in each of the virtual envs
-if has('win64') || has('win32') || has('win16')
-    let g:python3_host_prog = 'C:\Users\beren\scoop\apps\python\current\python.exe'
-    let g:fugitive_git_executable = 'C:\\Program\ Files\\Git\\cmd\\git.exe'
-endif
-
-" }}}
 " VIM-TEST {{{
 
 nmap <silent> <leader>t :TestNearest<CR>
