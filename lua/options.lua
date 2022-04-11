@@ -23,7 +23,6 @@ o.number = true
 o.textwidth = 80
 
 -- Tab equalize to 4 spaces
-bo.tabstop = 4
 bo.softtabstop = 4
 bo.shiftwidth = 4
 bo.smartindent = true
