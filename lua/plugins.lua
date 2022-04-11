@@ -1,8 +1,5 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
--- Only required if you have packer configured as `opt`
--- vim.cmd [[packadd packer.nvim]]
-
 -- returns the require for use in `config` parameter of packer's use
 -- expects the name of the config file
 local function get_config(name)
@@ -13,7 +10,7 @@ end
 local packer = require("packer")
 packer.init {
     enable = true, -- enable profiling via :PackerCompile profile=true
-    threshold = 10 -- the amount in ms that a plugins load time must be over for it to be included in the profile
+    threshold = 0 -- the amount in ms that a plugins load time must be over for it to be included in the profile
 }
 local use = packer.use
 packer.reset()
@@ -42,15 +39,18 @@ use {
     'neovim/nvim-lspconfig',
     config = get_config('lsp')
 }
-
--- LSP autocomplete
-use 'hrsh7th/nvim-cmp'
-use 'hrsh7th/cmp-nvim-lsp'
-use 'hrsh7th/cmp-buffer'
-use 'hrsh7th/cmp-path'
-use 'L3MON4D3/LuaSnip'
-use 'saadparwaiz1/cmp_luasnip'
-
+use {
+    'hrsh7th/nvim-cmp',                   -- LSP autocomplete & additional snippets
+    requires = {
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
+            {'L3MON4D3/LuaSnip'},
+            {'saadparwaiz1/cmp_luasnip'},
+            {'rafamadriz/friendly-snippets'}
+        },
+    config = get_config('snip')
+}
 use {
     'jose-elias-alvarez/null-ls.nvim',     -- code formatting/actions
     config = get_config('null-ls')
@@ -58,22 +58,27 @@ use {
 
 -- GIT
 use 'tpope/vim-fugitive'                   -- git
-use 'lewis6991/gitsigns.nvim'              -- show git icons
-
--- SNIPPETS
-use 'rafamadriz/friendly-snippets'
+use {
+    'lewis6991/gitsigns.nvim',             -- show git icons
+    config = get_config('gitsigns')
+}
 
 -- DEBUGGER - DAP
-use 'mfussenegger/nvim-dap'
-use 'leoluz/nvim-dap-go'                   -- requires delve debugger
-use 'mfussenegger/nvim-dap-python'         -- requires debugpy
-use 'rcarriga/nvim-dap-ui'
+use {
+    'mfussenegger/nvim-dap',
+    requires = {
+        {'leoluz/nvim-dap-go'},            -- requires delve debugger
+        {'mfussenegger/nvim-dap-python'},  -- requires debugpy
+        {'rcarriga/nvim-dap-ui'},
+        {'theHamsta/nvim-dap-virtual-text'},
+        {'nvim-telescope/telescope-dap.nvim'},
+    },
+    config = get_config('dap')
+}
 use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
 }
-use 'theHamsta/nvim-dap-virtual-text'
-use 'nvim-telescope/telescope-dap.nvim'
 
 -- MISC
 use 'ThePrimeagen/harpoon'
@@ -86,13 +91,19 @@ use 'tpope/vim-commentary'                 -- smarter comments
 use 'skywind3000/asynctasks.vim'           -- running programs in async manner
 use 'skywind3000/asyncrun.vim'
 
-use 'akinsho/bufferline.nvim'              -- better buffer display
+use {
+    'akinsho/bufferline.nvim',             -- better buffer display
+    config = get_config('bufferline')
+}
 use {
     'kyazdani42/nvim-tree.lua',            -- catalog tree
     requires = { {'kyazdani42/nvim-web-devicons'} },
     config = get_config('nvim_tree')
 }
-use 'stevearc/aerial.nvim'                 -- object/symbol tree on the right side
+use {
+    'stevearc/aerial.nvim',                -- object/symbol tree on the right side
+    config = get_config('aerial')
+}
 
 use 'vim-test/vim-test'                    -- better testing
 
