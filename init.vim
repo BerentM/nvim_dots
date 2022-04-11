@@ -7,7 +7,7 @@ EOF
 " Make it easy to load pynvim in each of the virtual envs
 if has('win64') || has('win32') || has('win16')
     let g:python3_host_prog = 'C:\Users\beren\scoop\apps\python\current\python.exe'
-    let g:fugitive_git_executable = 'C:\Progra~1\Git\cmd\git.exe'
+    " let g:fugitive_git_executable = 'C:\Progra~1\Git\cmd\git.exe'
 endif
 
 " }}}
@@ -36,7 +36,7 @@ inoremap jk <esc>
 nnoremap <silent> <leader>w :w <CR>
 
 " GIT
-nnoremap <silent> <leader>gg :Git<CR>
+nnoremap <silent> <leader>gg :Neogit<CR>
 
 " Reload gitsigns due to race condition error during start
 nnoremap <silent> <leader><leader>g :Gitsigns setup<CR>

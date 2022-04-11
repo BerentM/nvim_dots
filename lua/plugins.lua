@@ -64,7 +64,12 @@ use {
 -- }}}
 -- GIT {{{
 
-use 'tpope/vim-fugitive'                   -- git
+-- use 'tpope/vim-fugitive'                   -- git
+use {
+    'TimUntersberger/neogit',
+    requires = { {'nvim-lua/plenary.nvim'} },
+    config = get_config('neogit')
+}
 use {
     'lewis6991/gitsigns.nvim',             -- show git icons
     config = get_config('gitsigns')
