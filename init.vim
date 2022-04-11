@@ -1,11 +1,13 @@
 " PLUGS & CONFIG {{{
 
-lua require('plugins')      " packer plugin list
-lua require("conf")         " plugin lua configs
+lua << EOF
+    require('plugins')      -- packer plugin list
+EOF
+
 " Make it easy to load pynvim in each of the virtual envs
 if has('win64') || has('win32') || has('win16')
     let g:python3_host_prog = 'C:\Users\beren\scoop\apps\python\current\python.exe'
-    let g:fugitive_git_executable = 'C:\\Program\ Files\\Git\\cmd\\git.exe'
+    let g:fugitive_git_executable = 'C:\Progra~1\Git\cmd\git.exe'
 endif
 
 " }}}
@@ -239,6 +241,7 @@ augroup END
 " Looks cool with terminal font: 'Caskaydia Cove Nerd Font'
 set termguicolors
 syntax on
+let g:nord_italic = v:false
 colorscheme nord
 
 " }}}
