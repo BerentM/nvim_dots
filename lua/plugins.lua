@@ -124,6 +124,16 @@ use {
 
 use 'vim-test/vim-test'                    -- better testing
 
+use {
+  'rmagatti/auto-session',                 -- session management
+  config = function()
+    require('auto-session').setup {
+      log_level = 'info',
+      auto_session_suppress_dirs = {'~/'}
+    }
+  end
+}
+
 -- }}}
 -- VISUALS {{{
 
