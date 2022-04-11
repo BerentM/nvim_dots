@@ -1,8 +1,8 @@
--- packer plugin list
+-- Plugins via Packer
 require('plugins')
-
--- general remaps
+-- General remaps
 require('mappings')
-
--- load options
+-- Non plugin options
 require('options')
+-- Vim autocommands/autogroups
+require('autocmd')
