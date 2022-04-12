@@ -98,11 +98,22 @@ use {
 -- MISC {{{
 
 use 'ThePrimeagen/harpoon'
-use 'jiangmiao/auto-pairs'                 -- close brackets
 use 'justinmk/vim-sneak'                   -- jump to two specific characters
 use 'wellle/targets.vim'                   -- better changing and modifying in brackets
-use 'tpope/vim-surround'                   -- bracket closing
-use 'tpope/vim-commentary'                 -- smarter comments
+
+use {
+    'numToStr/Comment.nvim',               -- smarter comments
+    config = function()
+        require('Comment').setup()
+    end
+}
+
+use {
+    'windwp/nvim-autopairs',               -- bracket closing
+    config = function()
+        require('nvim-autopairs').setup()
+    end
+}
 
 use 'skywind3000/asynctasks.vim'           -- running programs in async manner
 use 'skywind3000/asyncrun.vim'
