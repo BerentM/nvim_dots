@@ -1,9 +1,9 @@
 -- LOCAL {{{
 
 local o = vim.opt -- global options
-local wo = vim.wo -- window options
-local bo = vim.bo -- buffer options
-local fn = vim.fn
+-- local wo = vim.wo -- window options
+-- local bo = vim.bo -- buffer options
+-- local fn = vim.fn
 local vg = vim.g
 
 -- }}}
@@ -23,9 +23,9 @@ o.number = true
 o.textwidth = 80
 
 -- Tab equalize to 4 spaces
-bo.softtabstop = 4
-bo.shiftwidth = 4
-bo.smartindent = true
+o.softtabstop = 4
+o.shiftwidth = 4
+o.smartindent = true
 
 -- Change tabs to spaces
 o.expandtab = true
@@ -37,7 +37,7 @@ o.cursorline = true
 o.showcmd = true
 
 -- Spell checking
-o.spelllang = "en_us,pl"
+o.spelllang = "en_us"
 
 -- Show nine spell checking candidates at most
 o.spellsuggest = "best,9"
