@@ -27,9 +27,6 @@ map("n", "<C-y>", "+y", default_options)
 map("n", "<C-p>", "+p", default_options)
 map("n", "<C-P>", "+P", default_options)
 
--- Save as root
-map("n", "w!!", "<cmd>'silent! write !sudo tee % >/dev/null' <bar> edit!<cr>", default_options)
-
 -- Quick save
 map("n", "<leader>w", "<cmd>w<cr>", default_options)
 
