@@ -57,9 +57,9 @@ o.termguicolors = true
 o.syntax = "on"
 
 -- Theme opts
-require('nord').set()
 vg.nord_contrast = true
 vg.nord_borders = true
 vg.nord_italic = false
+require('nord').set()
 
 -- }}}
