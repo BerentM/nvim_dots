@@ -20,15 +20,21 @@ packer.reset()
 use 'wbthomason/packer.nvim'
 
 -- }}}
+-- POPULAR REQUIREMENTS {{{
+
+use 'nvim-lua/plenary.nvim'
+use 'kyazdani42/nvim-web-devicons'
+
+-- }}}
 -- TELESCOPE {{{
 
 -- install ripgrep -> scoop install ripgrep
 -- make sure that "make" is there -> scoop install make
-use 'nvim-lua/popup.nvim'
-use 'nvim-lua/plenary.nvim'
 use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary'} },
+    requires = {
+            {'nvim-lua/popup.nvim'}
+    },
     config = get_config('telescope')
 }
 use {
@@ -39,7 +45,6 @@ use 'nvim-telescope/telescope-file-browser.nvim'
 
 -- }}}
 -- LSP {{{
-
 use {
     'neovim/nvim-lspconfig',
     config = get_config('lsp')
@@ -64,10 +69,8 @@ use {
 -- }}}
 -- GIT {{{
 
--- use 'tpope/vim-fugitive'                   -- git
 use {
     'TimUntersberger/neogit',
-    requires = { {'nvim-lua/plenary.nvim'} },
     config = get_config('neogit')
 }
 use {
@@ -120,12 +123,10 @@ use 'skywind3000/asyncrun.vim'
 
 use {
     'akinsho/bufferline.nvim',             -- better buffer display
-    requires = { {'kyazdani42/nvim-web-devicons'} },
     config = get_config('bufferline')
 }
 use {
     'kyazdani42/nvim-tree.lua',            -- catalog tree
-    requires = { {'kyazdani42/nvim-web-devicons'} },
     config = get_config('nvim_tree')
 }
 use {
@@ -153,7 +154,6 @@ use 'rebelot/kanagawa.nvim'                -- kanagawa theme
 use {
     'nvim-lualine/lualine.nvim',           -- statusline
     requires = {
-        {'kyazdani42/nvim-web-devicons'},
         {'SmiteshP/nvim-gps'}
     },
     event = "VimEnter",
@@ -161,7 +161,6 @@ use {
 }
 use {
     'folke/todo-comments.nvim',             -- highlight todo comments
-    requires = { {'nvim-lua/plenary'} },
     cmd = {"TodoTrouble", "TodoTelescope"},
     event = "BufReadPost",
     config = get_config("todo_comments")
