@@ -66,6 +66,8 @@ use {
     config = get_config('null-ls')
 }
 
+use 'williamboman/nvim-lsp-installer'       -- easy install LSP's
+
 -- }}}
 -- GIT {{{
 
