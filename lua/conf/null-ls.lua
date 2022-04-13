@@ -13,5 +13,6 @@ null_ls.setup({
         null_ls.builtins.diagnostics.pydocstyle, -- docstring check
         -- null_ls.builtins.diagnostics.vulture, -- look for unused code
         null_ls.builtins.formatting.stylua, -- lua formatting
+        null_ls.builtins.diagnostics.hadolint, -- dockerfile linting
     },
 })

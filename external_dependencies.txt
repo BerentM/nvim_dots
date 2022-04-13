@@ -19,3 +19,6 @@ go:
 lua:
     lsp -> sumneko_lua
     lsp_helpers -> (scoop) stylua
+
+docker:
+    linter -> (scoop) hadolint (https://github.com/hadolint/hadolint)
