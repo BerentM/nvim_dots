@@ -19,6 +19,8 @@ local on_attach = function(client)
 	-- error movement
 	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+
+        require("aerial").on_attach(client)
 end
 
 local servers = {"pyright", "gopls", "sumneko_lua", "dockerls"}
