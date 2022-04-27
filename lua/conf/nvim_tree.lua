@@ -47,12 +47,12 @@ require("nvim-tree").setup {
     -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
     update_cwd = true,
     -- this option hides files and folders starting with a dot `.`
-    hide_dotfiles = true,
+    -- hide_dotfiles = true,
     -- show lsp diagnostics in the signcolumn
-    diagnostics = {
-        enabled = true,
-        icon = {hint = "", info = "", warning = "", error = ""}
-    },
+    -- diagnostics = {
+    --     enabled = true,
+    --     icon = {hint = "", info = "", warning = "", error = ""}
+    -- },
     git = {ignore = true},
     -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
     update_focused_file = {
@@ -103,7 +103,7 @@ require("nvim-tree").setup {
         -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
         side = "left",
         -- if true the tree will resize itself after opening a file
-        auto_resize = false,
+        -- auto_resize = false,
         mappings = {
             -- custom only false will merge the list with the default mappings
             -- if true, it will only use your list to set the mappings
