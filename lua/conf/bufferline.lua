@@ -32,4 +32,4 @@ vim.keymap.set("n", "m]b", "<cmd>BufferLineMoveNext<CR>")
 vim.keymap.set("n", "m[b", "<cmd>BufferLineMovePrev<CR>")
 
 -- buffer pick
-vim.keymap.set("n", "gb", "<cmd>BufferLinePick<CR>")
+vim.keymap.set("n", "<leader>s", "<cmd>BufferLinePick<CR>")
