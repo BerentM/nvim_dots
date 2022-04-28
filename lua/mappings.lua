@@ -85,4 +85,15 @@ map("n", "<Leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", default_
 map("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", default_options)
 
 -- }}}
+-- TOGGLETERM {{{
+map('t', '<esc>', [[<C-\><C-n>]], default_options)
+map('t', 'jk', [[<C-\><C-n>]], default_options)
+map('t', '<C-h>', [[<C-\><C-n><C-W>h]], default_options)
+map('t', '<C-j>', [[<C-\><C-n><C-W>j]], default_options)
+map('t', '<C-k>', [[<C-\><C-n><C-W>k]], default_options)
+map('t', '<C-l>', [[<C-\><C-n><C-W>l]], default_options)
+
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
+-- }}}
 -- }}}
