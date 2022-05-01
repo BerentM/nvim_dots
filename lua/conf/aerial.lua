@@ -5,11 +5,11 @@ require("aerial").setup {
     -- Toggle aerial window
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>e', '<Cmd>AerialToggle!<CR>', {}) -- "e" for eksplorator
     -- Jump forwards/backwards
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>AerialPrev<CR>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-j>', '<cmd>AerialNext<CR>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader><C-k>', '<cmd>AerialPrev<CR>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader><C-j>', '<cmd>AerialNext<CR>', {})
     -- Jump up the tree
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader><C-k>', '<cmd>AerialPrevUp<CR>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader><C-j>', '<cmd>AerialNextUp<CR>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>AerialPrevUp<CR>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-j>', '<cmd>AerialNextUp<CR>', {})
     -- Fuzzy finding symbols (it respects backends and filter_kind)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fe', '<cmd>Telescope aerial<CR>', {})
   end,
