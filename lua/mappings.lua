@@ -53,11 +53,11 @@ map("i", "<F10>", "<C-O><cmd>set spell!<cr>", default_options)
 -- PLUGINS {{{
 -- VIM-TEST {{{
 
-map("n", "<leader>t", ":<cmd>TestNearest<CR>", default_options)
-map("n", "<leader>T", ":<cmd>TestFile<CR>", default_options)
-map("n", "<leader>a", ":<cmd>TestSuite<CR>", default_options)
-map("n", "<leader>l", ":<cmd>TestLast<CR>", default_options)
-map("n", "<leader>g", ":<cmd>TestVisit<CR>", default_options)
+map("n", "<leader>t", "<cmd>TestNearest<CR>", default_options)
+map("n", "<leader>tt", "<cmd>TestFile<CR>", default_options)
+map("n", "<leader>ta", "<cmd>TestSuite<CR>", default_options)
+map("n", "<leader>tl", "<cmd>TestLast<CR>", default_options)
+map("n", "<leader>tg", "<cmd>TestVisit<CR>", default_options)
 
 -- }}}
 -- ASYNCRUN {{{
