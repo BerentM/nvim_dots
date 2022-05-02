@@ -92,6 +92,7 @@ map('t', '<C-h>', [[<C-\><C-n><C-W>h]], default_options)
 map('t', '<C-j>', [[<C-\><C-n><C-W>j]], default_options)
 map('t', '<C-k>', [[<C-\><C-n><C-W>k]], default_options)
 map('t', '<C-l>', [[<C-\><C-n><C-W>l]], default_options)
+map('n', 'C-p', '<cmd>ToggleTerm<CR>', default_options)
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
