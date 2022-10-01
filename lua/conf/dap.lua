@@ -11,7 +11,7 @@ vim.keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>")
 vim.keymap.set("n", "<leader>dt", "<cmd>lua require'dap-go'.debug_test()<CR>")
 
 require("nvim-dap-virtual-text").setup()
-require("dap-python").setup("~/AppData/Local/nvim/.virtualenvs/debugpy/Scripts/python.exe")
+require("dap-python").setup()
 require("dap-go").setup()
 require("dapui").setup()
 

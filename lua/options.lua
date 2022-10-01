@@ -10,7 +10,7 @@ local vg = vim.g
 -- OPTIONS {{{
 
 -- Make it easy to load pynvim in each of the virtual envs
-vg.python3_host_prog = 'C:\\Users\\beren\\scoop\\apps\\python\\current\\python.exe'
+vg.python3_host_prog = '/usr/bin/python3'
 
 -- Fold code blocks
 o.foldmethod = "marker"

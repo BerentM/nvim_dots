@@ -67,6 +67,8 @@ use {
 }
 
 use 'williamboman/nvim-lsp-installer'       -- easy install LSP's
+use "williamboman/mason.nvim" -- cool tool to select lsp's etc to install
+require('mason').setup()
 
 -- }}}
 -- GIT {{{
@@ -153,6 +155,12 @@ use {
     config = function()
         require('toggleterm').setup()
     end
+}
+
+-- Lua
+use {
+  "folke/which-key.nvim",
+  config = get_config("which-key")
 }
 
 -- }}}
